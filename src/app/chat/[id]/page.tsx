@@ -72,9 +72,26 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }> }
         }),
       });
 
-      const data = await response.json();
-      
-      if (data.reply) {
+      let data: any;
+      try {
+        data = await response.json();
+      } catch (parseError) {
+        console.error("Error parsing response JSON:", parseError);
+      }
+
+      if (!response.ok) {
+        const serverMessage =
+          (data && (data.error?.message || data.message)) ||
+          "Sorry, I had trouble responding. Please try again! 💕";
+
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", content: serverMessage },
+        ]);
+        return;
+      }
+
+      if (data && data.reply) {
         setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
       }
     } catch (error) {
