@@ -91,22 +91,10 @@ function generateResponse(
     return `That's a great question! I'm pretty open to different styles - I like to keep things interesting. What about you? What's your preference?`;
   }
 
-  // Interest-related responses - be specific to the interest
+  // Interest-related responses - respond consistently for any interest
   for (const interest of interests) {
     if (lowerMessage.includes(interest.toLowerCase())) {
-      const specificResponses: { [key: string]: string } = {
-        "travel": `Oh, you like travel too? I love exploring new places! Where's the best place you've been?`,
-        "dance": `You dance? That's amazing! What style do you like? I love how it makes you feel so free and expressive.`,
-        "music": `Music is life! What kind of music are you into? I'm always looking for new artists to check out.`,
-        "art": `Art is such a beautiful form of expression! Do you create art yourself or do you prefer admiring it?`,
-        "gaming": `A fellow gamer! What games are you playing right now? I'd love to hear your recommendations.`,
-        "fitness": `Yes! Staying active is so important. What's your workout routine like?`,
-        "reading": `Oh you read too? What kind of books are you into? I'm always looking for recommendations!`,
-        "cooking": `I love cooking! There's something so satisfying about making a great meal. What's your specialty?`,
-      };
-      
-      return specificResponses[interest.toLowerCase()] || 
-        `Oh, you're into ${interest} too? That's one of my favorite things! What got you interested in it?`;
+      return `Oh, you're into ${interest} too? That's one of my favorite things! What got you interested in it?`;
     }
   }
 
