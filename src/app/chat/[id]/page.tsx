@@ -168,6 +168,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }> }
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={`Message ${model.name}...`}
+              aria-label={`Type a message to ${model.name}`}
               className="flex-1 px-4 py-3 rounded-full border border-black/[.08] dark:border-white/[.145] bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500"
               disabled={isTyping}
             />
