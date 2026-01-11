@@ -16,17 +16,19 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }> }
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [hasInitialized, setHasInitialized] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
   const model = aiModels.find((m) => m.id === id);
 
   useEffect(() => {
-    if (model && messages.length === 0) {
+    if (model && !hasInitialized) {
       // Initial greeting from the model
       const greeting = `Hey there! I'm ${model.name}. ${model.description} What would you like to talk about? 😊`;
       setMessages([{ role: "assistant", content: greeting }]);
+      setHasInitialized(true);
     }
-  }, [model, messages.length]);
+  }, [model, hasInitialized]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
