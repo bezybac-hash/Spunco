@@ -175,9 +175,23 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { message, personality, interests, name } = body;
 
-    if (!message || !personality || !interests || !name) {
+    const missingFields: string[] = [];
+    if (!message) {
+      missingFields.push("message");
+    }
+    if (!personality) {
+      missingFields.push("personality");
+    }
+    if (!interests) {
+      missingFields.push("interests");
+    }
+    if (!name) {
+      missingFields.push("name");
+    }
+
+    if (missingFields.length > 0) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: `Missing required fields: ${missingFields.join(", ")}` },
         { status: 400 }
       );
     }
