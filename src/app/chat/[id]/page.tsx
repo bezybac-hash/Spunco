@@ -3,20 +3,22 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { aiModels } from "@/lib/models";
+import { use } from "react";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
 
-export default function ChatPage({ params }: { params: { id: string } }) {
+export default function ChatPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
+  const { id } = use(params);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
-  const model = aiModels.find((m) => m.id === params.id);
+  const model = aiModels.find((m) => m.id === id);
 
   useEffect(() => {
     if (model && messages.length === 0) {
