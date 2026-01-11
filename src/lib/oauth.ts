@@ -31,7 +31,7 @@ export function getAuthorizeUrl({
 }) {
   const params = new URLSearchParams({
     response_type: "code",
-    client_id: oauthConfig.clientId,
+    client_id: oauthConfig.clientId || "",
     redirect_uri: redirectUri ?? env.OAUTH_REDIRECT_URI ?? oauthConfig.redirectUri ?? "",
     scope: `${DEFAULT_SCOPES} ${env.OAUTH_SCOPES ?? ""}`,
     state,
@@ -56,7 +56,7 @@ export async function exchangeCodeForToken({
     grant_type: "authorization_code",
     code,
     redirect_uri: redirectUri ?? oauthConfig.redirectUri ?? "",
-    client_id: oauthConfig.clientId,
+    client_id: oauthConfig.clientId || "",
     code_verifier: codeVerifier,
   });
 
@@ -67,7 +67,7 @@ export async function exchangeCodeForToken({
       Authorization:
         "Basic " +
         Buffer.from(
-          `${oauthConfig.clientId}:${oauthConfig.clientSecret}`,
+          `${oauthConfig.clientId || ""}:${oauthConfig.clientSecret || ""}`,
         ).toString("base64"),
     },
     body: params.toString(),
@@ -90,7 +90,7 @@ export async function refreshAccessToken(refreshToken: string) {
   const params = new URLSearchParams({
     grant_type: "refresh_token",
     refresh_token: refreshToken,
-    client_id: oauthConfig.clientId,
+    client_id: oauthConfig.clientId || "",
   });
 
   const res = await fetch(`${oauthConfig.issuerBaseURL}/oauth2/token`, {
@@ -100,7 +100,7 @@ export async function refreshAccessToken(refreshToken: string) {
       Authorization:
         "Basic " +
         Buffer.from(
-          `${oauthConfig.clientId}:${oauthConfig.clientSecret}`,
+          `${oauthConfig.clientId || ""}:${oauthConfig.clientSecret || ""}`,
         ).toString("base64"),
     },
     body: params.toString(),
