@@ -1,0 +1,21 @@
+{
+  "HomePage": {
+    "title": "Fanvue App Starter",
+    "loginButton": "تسجيل الدخول باستخدام Fanvue",
+    "logoutButton": "تسجيل الخروج",
+    "description": "انقر على \"تسجيل الدخول باستخدام Fanvue\" للمصادقة وسنعرض المستخدم الحالي من Fanvue API.",
+    "creatorsTitle": "المبدعون المميزون",
+    "creatorsDescription": "اكتشف مجتمعنا الرائع من المبدعين"
+  },
+  "LanguageSwitcher": {
+    "label": "اللغة"
+  },
+  "Creators": {
+    "followers": "متابعون",
+    "viewProfile": "عرض الملف الشخصي"
+  },
+  "Footer": {
+    "apiDocs": "وثائق Fanvue API",
+    "visitWebsite": "زيارة fanvue.com"
+  }
+}

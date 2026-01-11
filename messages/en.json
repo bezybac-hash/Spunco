@@ -1,0 +1,21 @@
+{
+  "HomePage": {
+    "title": "Fanvue App Starter",
+    "loginButton": "Login with Fanvue",
+    "logoutButton": "Logout",
+    "description": "Click \"Login with Fanvue\" to authenticate and we will display your current user from the Fanvue API.",
+    "creatorsTitle": "Featured Creators",
+    "creatorsDescription": "Discover our amazing community of creators"
+  },
+  "LanguageSwitcher": {
+    "label": "Language"
+  },
+  "Creators": {
+    "followers": "followers",
+    "viewProfile": "View Profile"
+  },
+  "Footer": {
+    "apiDocs": "Fanvue API Docs",
+    "visitWebsite": "Visit fanvue.com"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "HomePage": {
+    "title": "Fanvue App Starter",
+    "loginButton": "Se connecter avec Fanvue",
+    "logoutButton": "Se déconnecter",
+    "description": "Cliquez sur \"Se connecter avec Fanvue\" pour vous authentifier et nous afficherons votre utilisateur actuel de l'API Fanvue.",
+    "creatorsTitle": "Créateurs en Vedette",
+    "creatorsDescription": "Découvrez notre incroyable communauté de créateurs"
+  },
+  "LanguageSwitcher": {
+    "label": "Langue"
+  },
+  "Creators": {
+    "followers": "abonnés",
+    "viewProfile": "Voir le Profil"
+  },
+  "Footer": {
+    "apiDocs": "Documentation API Fanvue",
+    "visitWebsite": "Visiter fanvue.com"
+  }
+}
